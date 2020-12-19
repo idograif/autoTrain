@@ -21,8 +21,8 @@ export class InputStuffComponent implements OnInit {
     id: "",
     email: "",
     phoneNumber: "",
-    from: "",
-    to: "",
+    from: "3600",
+    to: "3310",
   };
 
   stations: Station[];
@@ -39,11 +39,17 @@ export class InputStuffComponent implements OnInit {
     this.formSaveService.date =
       d.getFullYear().toString() +
       (d.getMonth() + 1).toString() +
-      (d.getDate() + 1).toString();
+      d.getDate().toString();
 
     this.formSaveService.hour =
-      ("0" + (d.getHours() - 10).toString()).slice(-2) +
+      ("0" + d.getHours().toString()).slice(-2) +
       ("0" + d.getMinutes().toString()).slice(-2);
     this.router.navigate(["routes"]);
+  }
+
+  switch(): void {
+    const temp = this.form.from;
+    this.form.from = this.form.to;
+    this.form.to = temp;
   }
 }
