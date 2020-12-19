@@ -1,0 +1,15 @@
+<mat-grid-list
+  cols="1"
+  rowHeight="6:1"
+  style="text-align: center; margin-top: 10px;"
+>
+  <h1>
+    Trains but easy: Routes
+  </h1>
+  <div *ngFor="let route of routes">
+    <mat-grid-tile>
+      <app-route [trainRoute]="route"></app-route>
+      <button mat-button color="primary" (click)="order(route)">Order</button>
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>

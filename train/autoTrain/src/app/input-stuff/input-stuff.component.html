@@ -1,0 +1,57 @@
+<mat-grid-list cols="1" rowHeight="6:1" style="text-align: center; margin-top: 10px;">
+  <h1>
+    Trains but easy
+  </h1>
+  <mat-grid-tile>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="123456789" [(ngModel)]="form.id" />
+      </mat-form-field>
+    </p>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>email</mat-label>
+        <input matInput placeholder="mynamejeff@gmail.com" [(ngModel)]="form.email" />
+      </mat-form-field>
+    </p>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone number</mat-label>
+        <input matInput placeholder="0456234523" [(ngModel)]="form.phoneNumber" />
+      </mat-form-field>
+    </p>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field appearance="fill">
+      <mat-label>From</mat-label>
+      <mat-select [(ngModel)]="form.from">
+        <mat-option *ngFor="let station of stations" [value]="station.Id">
+          {{station.Heb}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-form-field appearance="fill">
+      <mat-label>To</mat-label>
+      <mat-select [(ngModel)]="form.to" >
+        <mat-option *ngFor="let station of stations" [value]="station.Id" >
+          {{station.Heb}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <button mat-button color="primary" style="box-shadow: 2px 4px;" (click)="onSubmit()" >Get the thing</button>
+  </mat-grid-tile>
+</mat-grid-list>
